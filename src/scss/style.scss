@@ -1,0 +1,323 @@
+@import "source/reset";
+@import "source/fonts";
+@import "header";
+@import "main_page_parts/mainpg";
+@import "main_page_parts/about";
+@import "main_page_parts/partners";
+@import "main_page_parts/work";
+// @import "main_page_parts/team";
+@import "main_page_parts/objects";
+@import "main_page_parts/map";
+@import "main_page_parts/form";
+@import "micromodal";
+@import "main_page_parts/modal";
+@import "footer";
+@import "dino";
+@import "developers";
+@import "main_page_parts/grifonchik";
+@import "main_page_parts/loader";
+@import "main_page_parts/scrollup";
+@import "main_page_parts/footerlink";
+
+html,
+body {
+  font-family: Rubik;
+  height: 100%;
+}
+body._lock {
+  overflow: hidden;
+}
+body {
+  &._pc .menu__list > li:hover .menu__sub-list {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0px, 0px);
+    pointer-events: all;
+  }
+  &._touch {
+    .page__section_1 {
+      background-attachment: scroll;
+    }
+    .menu__list > li {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu__link {
+      flex: 1 1 auto;
+    }
+
+    .menu__arrow {
+      display: block;
+      width: 0;
+      height: 0;
+      margin-left: 10px;
+      transition: transform 0.3s ease 0s;
+      // border-left: 5px solid transparent;
+      // border-right: 5px solid transparent;
+      // border-top: 10px solid #000;
+    }
+
+    .menu__list > li {
+      .menu__sub-list {
+        transform: translate(0px, 10%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      &._active {
+        .menu__sub-list {
+          opacity: 1;
+          visibility: visible;
+          transform: translate(0px, 0px);
+          pointer-events: all;
+        }
+
+        .menu__arrow {
+          transform: rotate(-180deg) translate(-18px, -24px);
+        }
+      }
+    }
+  }
+}
+
+/* Cтили для компрьютерных */
+
+@media (min-width: 1025px) {
+  .menu__list {
+    display: flex;
+    align-items: center;
+    > li {
+      padding: 10px 0;
+    }
+  }
+  .menu__link,
+  .menu__sub-link {
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+    &:after {
+      margin-top: 5px;
+      background-color: #4368c8;
+      display: block;
+      content: "";
+      height: 3px;
+      width: 0%;
+      transition: width 0.3s ease-in-out;
+    }
+    &:hover:after {
+      width: 100%;
+    }
+  }
+  .pc_btn {
+    display: flex;
+  }
+  .mobile_btn {
+    display: none;
+  }
+
+  .menu__sub-list {
+    transform: translate(0px, 10%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease 0s;
+  }
+}
+
+// Стили для мобильных устройств
+
+@media (max-width: 1024px) {
+  .menu__icon {
+    z-index: 5;
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    // background: red;
+
+    &::before,
+    &::after,
+    span {
+      left: 0;
+      position: absolute;
+      height: 3px;
+      border-radius: 10px;
+      width: 30px;
+      transition: all 0.3s ease 0s;
+      background-color: black;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+    }
+
+    &::before {
+      left: 100%;
+      top: 30%;
+      transform: scale(1) translate(-100%, -40%);
+    }
+
+    &::after {
+      left: 100%;
+      top: 70%;
+      transform: scale(1) translate(-100%, -60%);
+    }
+
+    span {
+      left: 100%;
+      top: 50%;
+      transform: scale(1) translate(-100%, -50%);
+    }
+
+    &._active {
+      span {
+        transform: scale(0) translate(0, -50%);
+      }
+
+      &::before {
+        transform: rotate(-45deg) translate(-80%, -420%);
+      }
+
+      &::after {
+        transform: rotate(45deg) translate(-85%, 350%);
+      }
+    }
+  }
+
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(250, 250, 250);
+    padding: 100px 30px 30px 30px;
+    transition: left 0.3s ease 0s;
+    overflow: auto;
+
+    &._active {
+      left: 0;
+    }
+
+    &::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 80px;
+      background-color: #fff;
+      border-bottom-right-radius: 40px;
+      border-bottom-left-radius: 40px;
+      z-index: 2;
+    }
+  }
+  .menu__list {
+    .mobile_btn {
+      display: flex;
+    }
+  }
+  .menu__list > li {
+    flex-wrap: wrap;
+    margin: 0px 0px 30px 0px;
+    a {
+      color: #000;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:first-child {
+      margin-bottom: 30px;
+    }
+
+    &._active .menu__sub-list {
+      display: block;
+      text-align: center;
+    }
+  }
+  .pc_btn {
+    display: none;
+  }
+
+  .menu__link {
+    font-size: 24px;
+    &:hover {
+      color: #212121;
+    }
+  }
+
+  .menu__sub-list {
+    position: relative;
+    background: none;
+    flex: 1 1 100%;
+    margin: 20px 0px 0px 0px;
+    display: none;
+    li a {
+      font-size: 20px;
+    }
+  }
+  .page__map {
+    flex-direction: column;
+    align-items: center;
+  }
+  .icons {
+    background: none;
+    justify-content: center;
+    background-color: none;
+    margin: 0px;
+    box-shadow: none;
+    padding: 0;
+  }
+  .icons__list {
+    display: flex;
+    font-size: 24px;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 426px) {
+  .page__catalog {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .catalog__item {
+    width: 100%;
+    height: 150px;
+
+  }
+  .about__cards {
+    flex-direction: column;
+  }
+  .page__qustions {
+    flex-direction: column;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6284ce;
+  border-radius: 8px;
+  border: 3px solid #ffffff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c7c7c;
+}

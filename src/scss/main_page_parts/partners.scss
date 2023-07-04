@@ -1,0 +1,26 @@
+
+.image-slider {
+    position: relative;
+    padding: 30px 0 70px 0;
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.31);
+    border-radius: 30px;
+    margin: 0px;
+    overflow:hidden;
+ 	&__image {
+        text-align: center;
+        img{
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+        }
+	}
+}
+.image-slider .swiper-pagination-bullet{
+   width: 30px;
+   height: 5px;
+   border-radius: 40px;
+   background-color: white;
+}
+

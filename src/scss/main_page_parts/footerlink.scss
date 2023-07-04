@@ -1,0 +1,48 @@
+// colors
+$babyblue: #7fadf2;
+$white: #fff;
+
+// mixins
+@mixin transform($translate) {
+  -webkit-transform: $translate;
+  -moz-transform: $translate;
+  -ms-transform: $translate;
+  -o-transform: $translate;
+  transform: $translate;
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+
+// buttons
+button.modal-trigger, button.modal-close {
+  cursor: pointer;
+  
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  padding: 7px;
+  
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  line-height: 1.1em;
+  color: $babyblue;
+  
+  border: 2px solid lighten($babyblue, 5);
+  border-radius: 100px;
+  background-color: $white;
+}
+
+.modal-trigger {
+  @include transition(all .2s ease);
+  
+  &:active {
+    margin: 2px 0 0 0;
+    @include transition(all .2s ease);
+  }
+}

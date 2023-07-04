@@ -1,0 +1,137 @@
+#border {
+  margin-top: 20px;
+  max-width: 1200px;
+  width: 100%;
+  height: 600px;
+  background-image: url("/img/game_road_stop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding-bottom: 55px;
+}
+.score_area {
+  position: absolute;
+  font-size: 18px;
+  align-self: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  padding: 25px;
+  display: none;
+  justify-content: flex-end;
+  span {
+    font-size: 18px;
+  }
+}
+.cross{
+  position: absolute;
+  font-size: 18px;
+  align-self: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  padding: 25px;
+  display: block;
+  justify-content: flex-start;
+  &:hover{
+    cursor: pointer;
+  }
+}
+#game_menu {
+  display: none;
+  position: absolute;
+  align-self: center;
+  max-width: 1200px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .game_menu__button {
+    outline: none;
+    border: none;
+    background-color: #5f4bd9;
+    color: #fff;
+    border-radius: 30px;
+    display: inline-block;
+    padding: 10px 28px;
+    width: 300px;
+    height: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    position: relative;
+    letter-spacing: 0.25px;
+    text-decoration: none;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+      background-color: #6f5bf0;
+    }
+  }
+}
+#character {
+  width: 130px;
+  height: 145px;
+  position: relative;
+  left: 50px;
+}
+.animate {
+  animation: jump 0.6s infinite linear;
+}
+@keyframes jump {
+  0% {
+    bottom: 0px;
+  }
+  25% {
+    bottom: 160px;
+  }
+  50% {
+    bottom: 170px;
+  }
+  75% {
+    bottom: 160px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+#house1 {
+  width: 120px;
+  height: 150px;
+  position: relative;
+  animation: none;
+  left: 100%;
+  img {
+    height: 150px;
+  }
+}
+#car1 {
+  width: 120px;
+  height: 50px;
+  position: relative;
+  animation: none;
+  left: 100%;
+  img {
+    height: 50px;
+  }
+}
+#house2 {
+  width: 120px;
+  height: 150px;
+  position: relative;
+  left: 100%;
+  animation: none;
+  img {
+    height: 150px;
+  }
+}
+@keyframes goLeft {
+  0% {
+    left: 120%;
+  }
+  100% {
+    left: -30%;
+  }
+}
